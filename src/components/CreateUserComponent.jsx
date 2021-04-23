@@ -57,10 +57,12 @@ class CreateUserComponent extends Component {
 
         if(this.state.id === '_add'){
             UserService.createUser(user).then(res =>{
+                alert("Total Score=> " + res.data.total_score + " send your phone(" + res.data.phone + ")");
                 this.props.history.push('/users');
             });
         }else{
             UserService.updateUser(user, this.state.id).then( res => {
+                alert("Total Score=> " + res.data.total_score + " send your phone(" + res.data.phone + ")");
                 this.props.history.push('/users');
             });
         }
@@ -143,7 +145,7 @@ class CreateUserComponent extends Component {
                                             <input placeholder="Montly Income Id" name="montly_income_id" className="form-control" 
                                                 value={this.state.montly_income_id} onChange={this.changeMontlyIncomeHandler}/>
                                         </div>
-
+                                        
 
                                         <button className="btn btn-success" onClick={this.saveOrUpdateUser}>Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
